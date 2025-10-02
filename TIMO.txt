@@ -1,0 +1,33 @@
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Data
+months = ['07/2019', '08/2019', '09/2019', '10/2019', '11/2019']
+blue_visitors = [50, 53, 52, 56, 62]
+orange_visitors = [70, 80, 90, 87, 92]
+pink_visitors = [39, 47, 42, 51, 50]
+
+# Bar positions
+x = np.arange(len(months))
+width = 0.25  # Width of each bar
+
+# Plotting
+fig, ax = plt.subplots(figsize=(10, 6))
+ax.bar(x - width, blue_visitors, width, label='Blue Source', color='skyblue')
+ax.bar(x, orange_visitors, width, label='Orange Source', color='orange')
+ax.bar(x + width, pink_visitors, width, label='Pink Source', color='hotpink')
+
+# Labels and Title
+ax.set_xlabel('Month')
+ax.set_ylabel('Visitors (in thousands)')
+ax.set_title('Visitors by Web Traffic Sources')
+ax.set_xticks(x)
+ax.set_xticklabels(months)
+ax.legend()
+
+# Grid for readability
+ax.yaxis.grid(True)
+
+# Show plot
+plt.tight_layout()
+plt.show()
